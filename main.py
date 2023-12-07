@@ -2,6 +2,8 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 import random
+import uvicorn
+import os
 
 app = FastAPI()
 
@@ -30,4 +32,7 @@ async def get_list(q: list | None = Query()):
                          headers={'X-API-KEY': '700211e1-f970-499f-9957-6bca24e2adb1'})
         film_list.append(r.json())
     return film_list
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv('PORT')))
 

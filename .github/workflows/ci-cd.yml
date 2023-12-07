@@ -1,0 +1,14 @@
+name: CI/CD pipline
+on:
+ push:
+    branches: ["master"]
+ pull_request:
+    branches: ["master"] 
+
+jobs:
+    build-and-push:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@3
+            - run: docker build . --file Dockerfile --tag delivery-service:latest
+    

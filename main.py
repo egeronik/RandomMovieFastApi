@@ -34,5 +34,5 @@ async def get_list(q: list | None = Query()):
     return film_list
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=int(os.getenv('PORT', 80)))
+    uvicorn.run(app,host="localhost", port=int(os.getenv('PORT', 80)))
 

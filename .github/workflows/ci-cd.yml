@@ -6,7 +6,7 @@ on:
 
 jobs:
     test:
-        runs-on: ubunti latest
+        runs-on: ubuntu-latest
         steps:
           - name: Prepare for tests
             run: |
